@@ -1,5 +1,4 @@
 /* Global styles */
-/* Global styles */
 body,
 html {
     margin: 0;
@@ -9,8 +8,10 @@ html {
     color: #fff;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: larger;
 }
 
 /* Navbar styles */
@@ -23,6 +24,22 @@ html {
 
 .logo {
     width: 100px;
+}
+
+#header,
+.auth-container {
+    width: 100%;
+    /* Take full width to avoid side-by-side layout */
+}
+
+#header {
+    padding: 10px 0;
+    text-align: center;
+}
+
+#header li {
+    display: inline-block;
+    margin: 0 10px;
 }
 
 /* Featured section styles */

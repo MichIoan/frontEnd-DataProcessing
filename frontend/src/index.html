@@ -8,10 +8,10 @@
   </head>
   <body>
     <div id="navbar" class="navbar">
-      <div>
-        <img class="logo" src="logo.png" alt="Logo" />
+      <div id="movieBar">
+        <img class="logo" src="img/womanEatCandy.jpg" alt="Logo" />
         <ul>
-          <li><a href="#">Movies</a></li>
+          <li id="movies"><a href="#">Movies</a></li>
           <li><a href="#">TV Shows</a></li>
           <li><a href="#">Recently Added</a></li>
           <!-- Add more <li> elements as needed for other navigation links -->
@@ -23,33 +23,33 @@
       </div>
     </div>
 
-    <div class="featured" style="background-image: url('featured.jpg')">
-      <!-- Place your featured content image in the project directory -->
-      <div class="featured-content">
-        <h1 class="title">Featured Title</h1>
-        <button class="btn-watch">Watch Now</button>
+    <div id="content">
+      <div class="featured">
+        <!-- Place your featured content image in the project directory -->
+        <div class="featured-content">
+          <h1 class="title">Featured Title</h1>
+          <button class="btn-watch">Watch Now</button>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div
+          class="content-item"
+          style="background-image: url('thumbnail1.jpg')"
+        ></div>
+        <div
+          class="content-item"
+          style="background-image: url('thumbnail2.jpg')"
+        ></div>
+        <div
+          class="content-item"
+          style="background-image: url('thumbnail3.jpg')"
+        ></div>
+        <div
+          class="content-item"
+          style="background-image: url('thumbnail4.jpg')"
+        ></div>
       </div>
     </div>
-
-    <div class="content-row">
-      <div
-        class="content-item"
-        style="background-image: url('thumbnail1.jpg')"
-      ></div>
-      <div
-        class="content-item"
-        style="background-image: url('thumbnail2.jpg')"
-      ></div>
-      <div
-        class="content-item"
-        style="background-image: url('thumbnail3.jpg')"
-      ></div>
-      <div
-        class="content-item"
-        style="background-image: url('thumbnail4.jpg')"
-      ></div>
-    </div>
-
-    <script src="script.js"></script>
   </body>
 </html>

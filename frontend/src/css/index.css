@@ -7,22 +7,40 @@ html {
     background-color: #141414;
     color: #fff;
     height: 100%;
+    max-width: 100%;
+    font-size: larger;
+    overflow-x: hidden !important;
 }
 
 /* Navbar styles */
 .navbar {
     background-color: #181818;
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        /* Aligns the nav items and accountChoose to opposite ends */
-        align-items: center;
-        width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Aligns the nav items and accountChoose to opposite ends */
+    align-items: center;
+    width: 100%;
+    height: 50px;
 }
 
 .logo {
     width: 100px;
+}
+
+#movies {
+    margin-left: 15px;
+}
+
+#movieBar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+#movieBar ul li a {
+    margin-right: 20px;
 }
 
 ul {
@@ -34,7 +52,7 @@ ul {
     margin: 0;
     /* Resetting margin to ensure proper alignment */
     flex-grow: 1;
-        justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 ul li {
@@ -48,7 +66,7 @@ ul li {
     display: flex;
     flex-direction: row;
     list-style: none;
-    padding-right: 10px;
+    padding-right: 50px;
 }
 
 #accountChoose li {
@@ -69,6 +87,8 @@ ul li {
     justify-content: center;
     background-size: cover;
     background-position: center;
+    background-image: url(img/nelu.jpg);
+    background-size: contain;
 }
 
 .featured-content {
