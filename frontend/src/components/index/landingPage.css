@@ -30,24 +30,24 @@ body {
   .email-input {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 20px;
+    padding: 10px;
   }
   
   .email-field {
-    padding: 10px;
-    margin-right: 10px;
-    width: 300px;
-    font-size: 1em;
+    width: 100%;
+    font-size: 1.5em;
+    height: 20%;
   }
   
   .button {
-    padding: 10px 20px;
     font-size: 1.5em;
     background-color: #e50914;
     color: white;
     border: none;
     cursor: pointer;
+    width: 50%;
+    height: 10%;
   }
   
   .footer {
