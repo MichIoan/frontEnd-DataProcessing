@@ -1,0 +1,146 @@
+/* Global styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #181818;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+#header,
+.auth-container {
+    width: 100%;
+    /* Take full width to avoid side-by-side layout */
+}
+
+#header {
+    padding: 10px 0;
+    text-align: center;
+}
+
+#header li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Featured section styles */
+.featured {
+    position: relative;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.featured-content {
+    text-align: center;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.btn-watch {
+    background-color: #e50914;
+    border: none;
+    padding: 15px 20px;
+    margin-top: 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Content row styles */
+.content-row {
+    display: flex;
+}
+
+.content-item {
+    margin: 10px;
+    width: 200px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.content-item:hover {
+    transform: scale(1.1);
+}
+
+/* Authentication container styles */
+.auth-container {
+    background-color: #181818;
+    border-radius: 4px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.auth-container h2 {
+    text-align: center;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background: #333;
+    color: #fff;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    background-color: #e50914;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    font-size: small;
+}
