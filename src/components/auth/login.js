@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './login.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,26 +17,28 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const data = {
       email: email,
       password: password,
     };
-  
+
     try {
       // Make a POST request with the JSON data
-      const response = await fetch('YOUR_API_URL', {
+      const response = await fetch('http://localhost:8081/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
-  
+
       if (response.ok) {
-        // Handle success, e.g., redirect or update state
-        console.log('Data sent successfully!');
-        //navigate('/index');
+        const responseData = await response.json();
+        const { token } = responseData;
+
+        localStorage.setItem('token', token);
+        navigate('/');
       } else {
         // Handle error response
         console.error('Error sending data to the API:', response.status, response.statusText);
@@ -43,7 +47,7 @@ const Login = () => {
       console.error('Error sending data to the API:', error);
     }
   };
-  
+
 
   return (
     <div className="login-container">
@@ -55,7 +59,7 @@ const Login = () => {
         <input type="password" value={password} onChange={handlePasswordChange} required />
         <button onClick={handleSubmit}>Sign In</button>
         <h3>New to Netflix?</h3>
-        <a href='#'>Sign up now</a>
+        <a href='/register'>Sign up now</a>
       </form>
     </div>
   );
