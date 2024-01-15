@@ -8,18 +8,18 @@ function LandingPage() {
     { title: 'Movie 1', description: 'Description for Movie 1', seasonId: 'null' },
     { title: 'Movie 2', description: 'Description for Movie 2', seasonId: 'null' },
     { title: 'Movie 3', description: 'Description for Movie 3', seasonId: 'null' },
-    { title: 'Movie 3', description: 'Description for Movie 3', seasonId: 'null' },
-    { title: 'Movie 3', description: 'Description for Movie 3', seasonId: 'null' },
-    { title: 'Movie 3', description: 'Description for Movie 3', seasonId: 'null' },
+    { title: 'Movie 4', description: 'Description for Movie 4', seasonId: 'null' },
+    { title: 'Movie 5', description: 'Description for Movie 5', seasonId: 'null' },
+    { title: 'Movie 6', description: 'Description for Movie 6', seasonId: 'null' },
   ];
 
   const series = [
     { title: 'Series 1', description: 'Description for Movie 1', seasonId: '1' },
-    { title: 'Series 1', description: 'Description for Movie 1', seasonId: '1' },
-    { title: 'Series 1', description: 'Description for Movie 1', seasonId: '1' },
-    { title: 'Series 1', description: 'Description for Movie 1', seasonId: '1' },
-    { title: 'Series 1', description: 'Description for Movie 1', seasonId: '1' },
-    { title: 'Series 1', description: 'Description for Movie 1', seasonId: '1' },
+    { title: 'Series 2', description: 'Description for Movie 2', seasonId: '1' },
+    { title: 'Series 3', description: 'Description for Movie 3', seasonId: '1' },
+    { title: 'Series 4', description: 'Description for Movie 4', seasonId: '1' },
+    { title: 'Series 5', description: 'Description for Movie 5', seasonId: '1' },
+    { title: 'Series 6', description: 'Description for Movie 6', seasonId: '1' },
   ];
 
   return (
