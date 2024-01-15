@@ -4,36 +4,52 @@ import { useParams } from 'react-router-dom';
 const SeriesPage = () => {
     const { mediaId } = useParams();
     const [isPlaying, setIsPlaying] = useState(false);
-    const [timeWatched, setTimeWatched] = useState(0);
+    const [timeWatchedInSeconds, setTimeWatchedInSeconds] = useState(0);
     const [currentEpisode, setCurrentEpisode] = useState(1);
-    const totalEpisodes = 10; // Total episodes in the series.
-    const episodeLength = 60; // Length of the episode in minutes.
-    const timeWatchedRef = useRef(timeWatched); // Add a ref
+    const totalEpisodes = 10;
+    const episodeLengthInSeconds = 60 * 60;
+    const timeWatchedRef = useRef(timeWatchedInSeconds);
+
+    // Start of new code (episode selector)
+
+    const handleEpisodeChange = e => {
+        setCurrentEpisode(Number(e.target.value));
+        setTimeWatchedInSeconds(0);
+    };
+
+    const episodeOptions = Array.from({ length: totalEpisodes }, (_, i) =>
+        <option key={i + 1} value={i + 1}>Episode {i + 1}</option>
+    );
+
+    // End of new code (episode selector)
 
     const handlePlayPause = () => {
         setIsPlaying(!isPlaying);
     };
 
     useEffect(() => {
-        timeWatchedRef.current = timeWatched; // Keep the ref current
-    }, [timeWatched]);
+        timeWatchedRef.current = timeWatchedInSeconds;
+    }, [timeWatchedInSeconds]);
 
     useEffect(() => {
         let interval = null;
         if (isPlaying) {
             interval = setInterval(() => {
-                if (timeWatchedRef.current + 1 >= episodeLength) {
+                if (timeWatchedRef.current + 1 >= episodeLengthInSeconds) {
                     setCurrentEpisode(prevEpisode => prevEpisode + 1 > totalEpisodes ? totalEpisodes : prevEpisode + 1);
-                    setTimeWatched(0);
+                    setTimeWatchedInSeconds(0);
                 } else {
-                    setTimeWatched(timeWatchedRef.current + 1);
+                    setTimeWatchedInSeconds(timeWatchedRef.current + 1);
                 }
-            }, 60000); // Increase by 1 every minute.
-        } else if (!isPlaying && timeWatched !== 0) {
+            }, 1000);
+        } else if (!isPlaying && timeWatchedInSeconds !== 0) {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [isPlaying, timeWatched]);
+    }, [isPlaying, timeWatchedInSeconds]);
+
+    const minutes = Math.floor(timeWatchedInSeconds / 60);
+    const seconds = timeWatchedInSeconds % 60;
 
     return (
         <div>
@@ -42,8 +58,11 @@ const SeriesPage = () => {
             <button onClick={handlePlayPause}>
                 {isPlaying ? "Pause" : "Play"}
             </button>
-            <p>Current Episode: {currentEpisode} / {totalEpisodes}</p>
-            <p>Time watched this episode: {timeWatched} min / {episodeLength} min</p>
+            <p>Current Episode: <select onChange={handleEpisodeChange} value={currentEpisode}>{episodeOptions}</select></p>
+            <p>
+                Time watched this episode: {minutes} min {seconds} sec / {episodeLengthInSeconds / 60} min
+                <progress value={timeWatchedInSeconds} max={episodeLengthInSeconds} />
+            </p>
         </div>
     );
 };

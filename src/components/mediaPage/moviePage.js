@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 const MoviePage = () => {
     const { mediaId } = useParams();
     const [isPlaying, setIsPlaying] = useState(false);
-    const [timeWatched, setTimeWatched] = useState(0);
-    const movieLength = 120; // Length of the movie in minutes.
+    const [timeWatchedInSeconds, setTimeWatchedInSeconds] = useState(0);
+    const movieLength = 120 * 60; // Length of the movie in seconds.
 
     const handlePlayPause = () => {
         setIsPlaying(!isPlaying);
@@ -15,13 +15,16 @@ const MoviePage = () => {
         let interval = null;
         if (isPlaying) {
             interval = setInterval(() => {
-                setTimeWatched(timeWatched => timeWatched + 1);
-            }, 60000); // Increase by 1 every minute.
-        } else if (!isPlaying && timeWatched !== 0) {
+                setTimeWatchedInSeconds(prevTime => prevTime + 1);
+            }, 1000); // Increase by 1 every second.
+        } else if (!isPlaying && timeWatchedInSeconds !== 0) {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [isPlaying, timeWatched]);
+    }, [isPlaying, timeWatchedInSeconds]);
+
+    const minutes = Math.floor(timeWatchedInSeconds / 60);
+    const seconds = timeWatchedInSeconds % 60;
 
     return (
         <div>
@@ -30,7 +33,9 @@ const MoviePage = () => {
             <button onClick={handlePlayPause}>
                 {isPlaying ? "Pause" : "Play"}
             </button>
-            <p>Time watched: {timeWatched} min / {movieLength} min</p>
+            <p>Time watched: {minutes} min {seconds} sec / {movieLength / 60} min
+                <progress value={timeWatchedInSeconds} max={movieLength} />
+            </p>
         </div>
     );
 };
