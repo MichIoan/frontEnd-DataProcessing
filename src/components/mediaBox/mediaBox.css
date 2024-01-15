@@ -1,0 +1,28 @@
+/* landingPage.css */
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.media-box {
+  border: 1px solid #ccc;
+  width: calc(15% - 10px);
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-box:hover {
+  cursor: pointer;
+}
+
+.media-box h3 {
+  padding: 10px;
+  background-color: rgba(9, 157, 243, 0.7);
+  margin: 0;
+  text-align: center;
+}

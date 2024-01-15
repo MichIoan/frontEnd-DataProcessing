@@ -6,7 +6,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [errors, setErrors] = useState([]); // Change the initial state to an empty array
+  const [errors, setErrors] = useState([]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -76,7 +76,7 @@ const Register = () => {
       }
     } catch (error) {
       console.error('Error sending data to the API:', error);
-      setErrors([error.message || 'Unknown error occurred']); // Set errors as an array
+      setErrors([error.message || 'Unknown error occurred']);
     }
   };
 
@@ -105,6 +105,8 @@ const Register = () => {
             <label>Password:</label>
             <input type="password" value={password} onChange={handlePasswordChange} required />
             <button type="submit">Sign Up</button>
+            <h3>Already an user?</h3>
+            <a href="/login">Log In</a>
           </form>
         </>
       )}

@@ -1,71 +1,36 @@
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  
-  .app {
-    background-color: #141414;
-    color: white;
-  }
-  
-  .navbar {
-    padding: 20px;
-  }
-  
-  .netflix-logo {
-    width: 150px;
-  }
-  
-  .main-content {
-    padding: 140px;
-    text-align: center;
-  }
-  
-  .main-content h1 {
-    font-size: 3em;
-  }
-  
-  .email-input {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 10px;
-  }
-  
-  .email-field {
-    width: 100%;
-    font-size: 1.5em;
-    height: 20%;
-  }
-  
-  .button {
-    font-size: 1.5em;
-    background-color: #e50914;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 50%;
-    height: 10%;
-  }
-  
-  .footer {
-    background-color: #141414;
-    color: #8c8c8c;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .footer-links span {
-    margin: 5px;
-    cursor: pointer;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.app {
+  background-color: #141414;
+  color: white;
+}
+
+.main-content {
+  padding: 140px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.displayMedia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+ul a {
+  text-decoration: none;
+  color: rgba(9, 157, 243, 0.7);
+  font-weight: bold;
+}

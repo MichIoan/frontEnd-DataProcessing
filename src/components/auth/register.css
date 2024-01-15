@@ -22,6 +22,10 @@
    margin: 10px;
  }
 
+ .register-form a {
+   color: #2d920f;
+ }
+
  label {
    margin-bottom: 8px;
  }

@@ -1,60 +1,88 @@
- body {
-   margin: 0;
-   padding: 0;
-   background: #141414;
-   font-family: 'Arial', sans-serif;
-   color: white;
- }
+body {
+  margin: 0;
+  padding: 0;
+  background: #141414;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
 
- .login-container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
- }
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
- .login-container h1 {
-   color: #3909e5;
- }
+.login-container h1 {
+  color: #3909e5;
+}
 
- .login-form {
-   background: #333;
-   padding: 40px;
-   border-radius: 8px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   max-width: 300px;
-   margin: 10px;
- }
+.login-form {
+  background: #333;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 10px;
+}
 
- label {
-   display: block;
-   margin-bottom: 8px;
- }
+label {
+  display: block;
+  margin-bottom: 8px;
+}
 
- input {
-   width: 100%;
-   padding: 8px;
-   margin-bottom: 16px;
-   border: 1px solid #888;
-   border-radius: 4px;
- }
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
 
- button {
-   background: #3909e5;
-   color: white;
-   padding: 10px;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-   width: 108%;
- }
+button {
+  background: #3909e5;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 108%;
+}
 
- button:hover {
-   background: #3909e5;
- }
+button:hover {
+  background: #3909e5;
+}
 
- .login-form a {
-   color: white;
-   text-decoration: none;
- }
+.login-form a {
+  color: #2d920f;
+}
+
+.popup {
+  position: fixed;
+  height: 400px;
+  width: 800px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(78, 43, 43);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup p {
+  margin: 0;
+}
+
+.popup button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

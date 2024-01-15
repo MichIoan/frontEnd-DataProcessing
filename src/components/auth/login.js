@@ -6,6 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,6 +18,19 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const validationErrors = [];
+
+    // Email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      validationErrors.push('Invalid email format. Please enter a valid email address.');
+    }
+
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     const data = {
       email: email,
@@ -40,24 +54,32 @@ const Login = () => {
         localStorage.setItem('token', token);
         navigate('/');
       } else {
-        // Handle error response
-        console.error('Error sending data to the API:', response.status, response.statusText);
+        const errorData = await response.json();
+        setErrors([errorData.error]);
       }
     } catch (error) {
-      console.error('Error sending data to the API:', error);
+      console.log(error);
     }
   };
 
-
   return (
     <div className="login-container">
-      <h1>Netflix Login</h1>
+      <h1>Login</h1>
+      {errors.length > 0 && (
+        <div className="error-container">
+          {errors.map((error, index) => (
+            <p key={index} className="error-message">
+              <b>Error:</b> {error}
+            </p>
+          ))}
+        </div>
+      )}
       <form className="login-form" onSubmit={handleSubmit}>
         <label>Email:</label>
-        <input type="email" value={email} onChange={handleEmailChange} required />
+        <input type="text" value={email} onChange={handleEmailChange} required />
         <label>Password:</label>
         <input type="password" value={password} onChange={handlePasswordChange} required />
-        <button onClick={handleSubmit}>Sign In</button>
+        <button type="submit">Sign In</button>
         <h3>New to Netflix?</h3>
         <a href='/register'>Sign up now</a>
       </form>

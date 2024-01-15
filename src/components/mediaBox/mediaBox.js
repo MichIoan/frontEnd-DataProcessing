@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
-import './landingPage.css';
+import React from 'react';
+import './mediaBox.css';
+import { useNavigate } from 'react-router-dom';
 
-function MediaBox({ title, description, image }) {
+function MediaBox({ title, description, id, season }) {
+
+    const navigate = useNavigate();
+
+    const handleClick = (e) => {
+        if (season === 'null') {
+            navigate(`/media/${id}`);
+        } else {
+            navigate(`/media/${id}/season`);
+        }
+    }
+
     return (
-        <div className="app">
-            <div className="main-content">
-                <div className="movie-box">
-                    <img src={image} alt={title} />
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                </div>
-            </div>
+        <div className="media-box" onClick={handleClick}>
+            <h3>{title}</h3>
+            <p>{description}</p>
         </div>
     );
 }
 
-export default LandingPage;
+export default MediaBox;
